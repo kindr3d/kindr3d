@@ -1,19 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
+const mongoose = require('mongoose');
+const app = express();
 
 // connect to the database
-
-var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/test', {
   useMongoClient: true,
 });
 
 // configure app to use bodyParser()
-const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
