@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/test', {
+mongoose.connect('CONFIG HERE', {
   useMongoClient: true,
 });
 
@@ -27,6 +27,23 @@ router.get('/', (req, res) => {
 });
 
 // more routes for our API will happen here
+router.route('/users')
+
+.post((req, res) => {
+  var user = new User();
+  user.name = req.body.name;
+
+  user.save((err) => {
+    if (err)
+      res.send(err);
+
+      res.json({ message: 'Bear created!' });
+  });
+})
+
+.get((req, res) => {
+  res.json({message:'blop'})
+    })
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
@@ -34,3 +51,7 @@ router.get('/', (req, res) => {
 // START THE SERVER
 app.listen(port);
 console.log('Magic happens on port ' + port + '/api');
+
+
+//MONGO
+var User = require('./lib/models/user');
