@@ -2,16 +2,47 @@
   "name": "express-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "xo"
   },
-  "author": "mmm",
+  "author": "kindr3d (https://github.com/kindr3d/)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mongoose": "^4.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "xo": {
+    "space": true,
+    "ignores": [
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "rules": {
+      "quotes": [
+        "error",
+        "single",
+        {
+          "allowTemplateLiterals": true
+        }
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "camelcase": 0,
+      "arrow-parens": 0,
+      "unicorn/no-process-exit": 0,
+      "quote-props": 0,
+      "unicorn/catch-error-name": 0,
+      "func-names": 0
+    }
   }
 }
