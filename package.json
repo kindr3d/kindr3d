@@ -5,13 +5,17 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/_mocha"
   },
   "author": "mmm",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chai": "^4.1.1",
     "express": "^4.15.3",
-    "mongoose": "^4.11.5"
+    "mocha": "^3.5.0",
+    "mongoose": "^4.11.5",
+    "sinon": "^3.2.0",
+    "sinon-mongoose": "^2.0.2"
   }
 }
