@@ -1,7 +1,7 @@
 ### This is our attempt to create a place for people like us and learn a thing or two
 
 ## Ideas
-* ~~learn some hardware by hosting and dockerising the server side ourselves (strikethrough)~~
+* ~~learn some hardware by hosting and dockerising the server side ourselves~~
 * ~~use React, Node.js, Jest, Express to create a bookclub/skillsharing/support network~~
 * setup our own testing suit (TravisCI)
 * document everything we do and write posts about it to help other learners
@@ -17,7 +17,7 @@
 
 ## MVP
 Tool to create subreddit like study or reading groups with posts sorted chronologically that users can comment on. Comments are sorted by up/downvotes.
-Basic things MVP has to:
+Basic things MVP has to do:
 * register/login/edit/delete user
 * create/delete/edit/join/leave a group
 * add/edit/delete a posts
