@@ -5,6 +5,13 @@ var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
 
+//connect to the database
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/test', {
+  useMongoClient: true,
+});
+
+
 // configure app to use bodyParser()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
