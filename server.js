@@ -1,3 +1,5 @@
+'use strict';
+
 // IMPORTS
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -5,7 +7,7 @@ const mongoose = require('mongoose');
 const config = require('./config');
 const User = require('./lib/models/user');
 
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'development';
 
 // EXPRESS
 const app = express();
@@ -25,8 +27,8 @@ router.get('/', (req, res) => {
 });
 
 router.use((req, res, next) => {
-    console.log('Something is happening.');
-    next();
+  console.log('Something is happening.');
+  next();
 });
 
 // DB
@@ -96,3 +98,4 @@ router.route('/users/:user_id')
 // START THE SERVER
 app.listen(port);
 console.log('Magic happens on port ' + port + '/api');
+console.log(app);
