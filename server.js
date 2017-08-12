@@ -2,7 +2,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 const User = require('./lib/models/user');
+
+process.env.NODE_ENV = 'development'
 
 // EXPRESS
 const app = express();
@@ -14,6 +17,7 @@ const port = process.env.PORT || 8080;
 // ROUTES FOR OUR API
 const router = express.Router();
 app.use('/api', router);
+app.set('dbUrl', config.db[process.env.NODE_ENV]);
 
 // Test route (accessed at GET http://localhost:8080/api)
 router.get('/', (req, res) => {
@@ -26,7 +30,7 @@ router.use((req, res, next) => {
 });
 
 // DB
-mongoose.connect('mongodb://elvina:elvinapass@ds013260.mlab.com:13260/kindr3d', {
+mongoose.connect(app.get('dbUrl'), {
   useMongoClient: true,
 });
 
