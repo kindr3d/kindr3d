@@ -1,12 +1,12 @@
 const sinon = require('sinon');
 const assert = require('chai').assert;
 const mongoose = require('mongoose');
-const app = require('../server').app;
-const config = require('../config');
+const app = require('../../server').app;
+const config = require('../../config');
 // const sinonMongoose = require('sinon-mongoose');
 
 // Importing our user model for our unit testing.
-const User = require('../lib/models/user');
+const User = require('../../lib/models/user');
 
 process.env.NODE_ENV = 'test';
 app.set('dbUrl', config.db[process.env.NODE_ENV]);
