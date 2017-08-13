@@ -39,16 +39,11 @@ mongoose.connect(app.get('dbUrl'), {
 // User routes
 router.route('/users')
   .post((req, res) => {
-    const user = new User();
-    user.name = req.body.name;
-
-    user.save((err) => {
+    User.create({name: req.body.name}, (err, user) => {
       if (err)
         res.send(err);
 
-      // res.status(200).json(user);
       res.json(user);
-
     });
   })
   .get((req, res) => {
@@ -70,18 +65,11 @@ router.route('/users/:user_id')
     })
   })
   .put((req, res) => {
-    User.findById(req.params.user_id, (err, user) => {
+    User.findOneAndUpdate({_id: req.params.user_id}, {name: req.body.name}, null, (err, user) => {
       if (err)
         res.status(500).send(err);
 
-      user.name = req.body.name;
-
-      user.save((err, user) => {
-        if (err)
-          res.status(500).send(err);
-
-        res.json({user, message: "user updated"});
-      });
+      res.json({user, message: "user updated"});
     });
   })
   .delete((req, res) => {

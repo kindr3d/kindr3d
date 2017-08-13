@@ -27,26 +27,12 @@ describe('User model', () => {
   });
 
   it('should create a user', (done) => {
-    const username = 'Jane';
-    const user = new User();
-    user.name = username;
-    user.save((err) => {
+    const name = 'Jane';
+    User.create({name}, (err, user) => {
       assert.notOk(err);
-      assert.equal(user.name, username);
+      assert.equal(user.name, name);
       done();
-    })
-  });
-
-  it('should find user by id', (done) => {
-    const user = new User();
-    user.name = 'Testname';
-    user.save().then(() => {
-      User.findById(user._id, (err, returnedUser) => {
-        assert.notOk(err);
-        assert.equal(returnedUser.name, user.name);
-        // assert.equal(returnedUser._id, user._id);
-        done();
-      });
     });
   });
+
 });
