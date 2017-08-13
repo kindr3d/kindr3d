@@ -98,4 +98,7 @@ router.route('/users/:user_id')
 // START THE SERVER
 app.listen(port);
 console.log('Magic happens on port ' + port + '/api');
-console.log(app);
+
+module.exports = {
+  app,
+};

@@ -14,9 +14,9 @@
 - [x] setup priorities for Micaela and Elvina
 - [x] setup linting rules
 - [x] figure out if we use branching or work in the master
-- [ ] coding style preferences
-- [ ] config mongoose
+- [x] config mongoose
 - [ ] env variables
+- [ ] coding style preferences
 
 ## MVP
 Tool to create subreddit like study or reading groups with posts sorted chronologically that users can comment on. Comments are sorted by up/downvotes.
