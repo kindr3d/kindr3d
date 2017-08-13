@@ -3,7 +3,6 @@ const assert = require('chai').assert;
 const mongoose = require('mongoose');
 const app = require('../../server').app;
 const config = require('../../config');
-// const sinonMongoose = require('sinon-mongoose');
 
 // Importing our user model for our unit testing.
 const User = require('../../lib/models/user');

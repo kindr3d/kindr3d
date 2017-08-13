@@ -89,4 +89,5 @@ console.log('Magic happens on port ' + port + '/api');
 
 module.exports = {
   app,
+  router,
 };

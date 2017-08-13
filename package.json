@@ -19,7 +19,8 @@
     "mongoose": "^4.11.5",
     "mongoose-timestamp": "^0.6.0",
     "sinon": "^3.2.0",
-    "sinon-mongoose": "^2.0.2"
+    "sinon-mongoose": "^2.0.2",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
