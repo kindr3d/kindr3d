@@ -1,5 +1,8 @@
 FROM node:7
 
+# Run the db locally
+docker run -d -p 27017:27017 --name mongo-db mongo
+
 # Create app directory
 RUN mkdir -p /app
 WORKDIR /app
