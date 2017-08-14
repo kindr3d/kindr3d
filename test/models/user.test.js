@@ -1,17 +1,15 @@
-const sinon = require('sinon');
 const assert = require('chai').assert;
 const mongoose = require('mongoose');
+
 const app = require('../../server').app;
 const config = require('../../config');
-
-// Importing our user model for our unit testing.
 const User = require('../../lib/models/user');
 
 process.env.NODE_ENV = 'test';
+app.set('env', process.env.NODE_ENV);
 app.set('dbUrl', config.db[process.env.NODE_ENV]);
 
 describe('User model', () => {
-
   before(() => {
     mongoose.connect(app.get('dbUrl'), {
       useMongoClient: true,
@@ -19,8 +17,8 @@ describe('User model', () => {
   });
 
   after(() => {
-    for (var i in mongoose.connection.collections) {
-       mongoose.connection.collections[i].remove();
+    for (let i in mongoose.connection.collections) {
+      mongoose.connection.collections[i].remove();
     }
     mongoose.disconnect();
   });
@@ -33,5 +31,4 @@ describe('User model', () => {
       done();
     });
   });
-
 });

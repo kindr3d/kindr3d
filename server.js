@@ -5,16 +5,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
-const userRouter = require('./server/routes/userRoutes');
+const userRouter = require('./server/routes/user-routes');
 
 // EXPRESS
 const app = express();
 process.env.NODE_ENV = 'development';
 app.set('env', process.env.NODE_ENV);
 
+// Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-const port = process.env.PORT || 8080;
 
 // ROUTES FOR OUR API
 const defaultRouter = express.Router();
@@ -22,7 +22,6 @@ const defaultRouter = express.Router();
 defaultRouter.get('/', (req, res) => {
   res.json({message: 'hooray! welcome to our api!'});
 });
-
 defaultRouter.use((req, res, next) => {
   console.log('Something is happening.');
   next();
@@ -37,8 +36,8 @@ mongoose.connect(app.get('dbUrl'), {
   useMongoClient: true,
 });
 
-
 // START THE SERVER
+const port = process.env.PORT || 8080;
 app.listen(port);
 console.log('Magic happens on port ' + port + '/api');
 

@@ -3,7 +3,7 @@ const assert = require('chai').assert;
 const mongoose = require('mongoose');
 const sinon = require('sinon');
 
-const {app, router} = require('../../server');
+const {app} = require('../../server');
 const config = require('../../config');
 const User = require('../../lib/models/user');
 
@@ -19,25 +19,25 @@ describe('Route /user', () => {
   });
 
   after(() => {
-    for (var i in mongoose.connection.collections) {
-       mongoose.connection.collections[i].remove();
+    for (let i in mongoose.connection.collections) {
+      mongoose.connection.collections[i].remove();
     }
     mongoose.disconnect();
   });
 
   it('creats user on post', (done) => {
     const name = 'Testuser';
-    const createSpy = sinon.spy(User, 'create')
+    const createSpy = sinon.spy(User, 'create');
     request(app)
       .post('/api/users')
       .set('Accept', /json/)
       .send({name})
       .expect('Content-Type', /json/)
       .expect(200)
-      .end((error,res) => {
+      .end((error, res) => {
         assert.equal(res.body.name, name);
         sinon.assert.calledOnce(createSpy);
         done();
-      })
+      });
   });
 });

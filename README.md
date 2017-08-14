@@ -15,6 +15,12 @@
 - [x] setup linting rules
 - [x] figure out if we use branching or work in the master
 - [x] config mongoose
+- [x] supertest setup
+- [ ] routes tests http://mherman.org/blog/2016/09/12/testing-node-and-express/#.WZBUm0tLfNQ
+- [ ] user validation http://mongoosejs.com/docs/validation.html
+- [ ] user authentication https://www.djamware.com/post/58eba06380aca72673af8500/node-express-mongoose-and-passportjs-rest-api-authentication
+- [ ] clear db and population (seeds?)
+- [ ] better pretest (environment, running db)
 - [ ] env variables
 - [ ] coding style preferences
 
@@ -31,12 +37,13 @@ Basic things MVP has to do:
 * Node.js
 * Express
 * heroku
-* postgres?
+* mongoose
 * http2
-* Jest
+* Sinon+mocha+chai
 * grid/flexbox
 
 ## SCHEDULE
 - [x] 1 week(30.07.17): talked about concept/stack/design
-- [ ] 2 week: setup a server and heroku
-- [ ] 3 week: database
+- [x] 2 week: setup a server and database, initial test
+- [ ] 3 week: define routes and models with tests and deploy
+- [ ] 4 week: start minimal frontend setup

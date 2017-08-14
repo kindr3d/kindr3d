@@ -6,12 +6,12 @@ const userRouter = express.Router();
 userRouter.use((req, res, next) => {
   console.log('Users');
   next();
-})
+});
 // User routes
 userRouter.post('/', (req, res) => {
   User.create({name: req.body.name}, (err, user) => {
     if (err)
-    res.send(err);
+      res.send(err);
 
     res.json(user);
   });
@@ -19,7 +19,7 @@ userRouter.post('/', (req, res) => {
 userRouter.get('/', (req, res) => {
   User.find((err, users) => {
     if (err)
-    res.status(500).send(err);
+      res.status(500).send(err);
 
     res.json(users);
   });
@@ -32,7 +32,7 @@ userRouter.route('/:user_id')
         res.status(500).send(err);
 
       res.json(user);
-    })
+    });
   })
   .put((req, res) => {
     User.findOneAndUpdate({_id: req.params.user_id}, {name: req.body.name}, null, (err, user) => {
